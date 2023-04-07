@@ -1,4 +1,4 @@
-<h2>Template: Básicos</h2>
+<h2>Template: <small>Básicos</small></h2>
 <hr>
 
 
@@ -12,8 +12,8 @@
       <div class="mb-3 row">
         <label class="col-sm-3 col-form-label" for="">Productos</label>
         <div class="col-sm-9">
-          <input type="text" name="producto" class="form-control" placeholder="Nombre del producto" required ngModel
-            minlength="3">
+          <input type="text" name="producto" class="form-control" placeholder="Nombre del producto" required
+            [ngModel]="initForm.producto" minlength="3">
           <span class="form-text text-danger" *ngIf="nombreValido()">Debe de ser de tres letras.</span>
         </div>
       </div>
@@ -22,8 +22,8 @@
       <div class="mb-3 row">
         <label class="col-sm-3 col-form-label" for="">Precio</label>
         <div class="col-sm-9">
-          <input type="number" name="precio" class="form-control" placeholder="Precio del producto" ngModel required
-            min="0">
+          <input type="number" name="precio" class="form-control" placeholder="Precio del producto"
+            [ngModel]="initForm.precio" required min="0">
           <span class="form-text text-danger" *ngIf="precioValido()">El precio debe de ser 0 o mayor.</span>
         </div>
       </div>
@@ -32,7 +32,8 @@
       <div class="mb-3 row">
         <label class="col-sm-3 col-form-label" for="">Existencias</label>
         <div class="col-sm-9">
-          <input type="text" name="existencias" class="form-control" placeholder="Existencias del producto" ngModel>
+          <input type="text" name="existencias" class="form-control" placeholder="Existencias del producto"
+            [ngModel]="initForm.existencias" required customMin [minimo]="0">
           <!-- <span class="form-text text-danger">Debe de ser de tres letras.</span> -->
         </div>
       </div>

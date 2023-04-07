@@ -11,6 +11,12 @@ export class BasicosComponent {
 
   @ViewChild('miFormulario') miFormulario!: NgForm;
 
+  // Valores iniciales del formulario (como hace el RESETFORM)
+  initForm = {
+    producto: 'RTX 4090ti',
+    precio: 10,
+    existencias: 10
+  }
 
   nombreValido(): boolean {
     return this.miFormulario?.controls['producto']?.invalid && this.miFormulario?.controls['producto']?.touched
@@ -23,7 +29,14 @@ export class BasicosComponent {
 
   /*   guardar(miFormulario: NgForm) { */
   guardar() {
-    console.log(this.miFormulario);
+    console.log('Creado correctamente.');
+
+    this.miFormulario.resetForm({
+      // Valores por defecto
+      producto: '(sin valor)',
+      precio: 0,
+      existencias: 0
+    });
   }
 
 }
